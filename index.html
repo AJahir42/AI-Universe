@@ -17,13 +17,75 @@
         </div>
     </header>
 
+    
     <main>
+        <!-- display result in card -->
         <section>
+            
             <div id="tech-container" class="row row-cols-1 row-cols-md-3 g-4">
                 
             </div>
         </section>
+
+        <!-- modal -->
+        <section>
+            <div class="modal fade modal-xl" id="toolDetailModal" tabindex="-1" aria-labelledby="toolDetailModalLabel" aria-hidden="true"> 
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    
+                        <div>
+                            <button style="float: right;background-color:red;" type="button" class="btn btn-close rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                       
+                    
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            
+                            <div class="container-fluid">
+                                <div class="row gap-3 d-flex justify-content-center">
+                                    <!-- card-1 -->
+                                    <div class="col-md-5 bg-danger-subtle rounded border border-danger-subtle">
+                                        <h6 id="description"></h6>
+                                        <div class="row gap-2 d-flex justify-content-center" style="width: 23rem;">
+                                        
+                                            <div class="col-md-3 px-2 text-success bg-light rounded border  border-danger-subtle">
+                                                <p class="fw-bold">$10/<br>month basic</p>
+                                            </div>
+                                            <div class="col-md-3 px-2 text-warning bg-light rounded border border-danger-subtle">
+                                                <p class="fw-bold">$50/<br>month pro</p>
+                                            </div>
+                                            <div class="col-md-3 px-2 text-danger bg-light rounded border border-danger-subtle">
+                                                <p class="fw-bold">Contact us Enterprise</p>
+                                            </div>
+                                                
+                                            
+                                        </div>
+                                        <div>
+                                            <div id="card-features">
+
+                                            </div>
+                                            <div id="card-integrations">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card-2 -->
+                                    <div class="col-md-5 bg-light rounded border border-danger-subtle">.col-md-6</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+        </section>
+        
+
     </main>
+
+  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
