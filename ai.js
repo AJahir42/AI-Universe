@@ -10,7 +10,7 @@ const laodTools = async () => {
 
 const displayTools = (technologies) => {
     const techContainer = document.getElementById('tech-container')
-    // console.log(technologies)  
+    console.log(technologies)  
     technologies.forEach(technology => {
         const techDiv = document.createElement('div')
         // console.log(technology.id)
@@ -63,7 +63,7 @@ const loadToolDetails=async id=>{
 }
 
 const openModal=tool=>{
-    console.log(tool.data.integrations)
+    console.log(tool.data)
     const toolDescription=document.getElementById("description")
     // object of objects of features
     toolDescription.innerText=tool.data.description
@@ -78,7 +78,43 @@ const openModal=tool=>{
     <li>${item.feature_name}</li>
     `).join("")}`
 
+    const integrationsDiv=document.getElementById("card-integrations")
+    const integrationsElements=tool.data.integrations
+    integrationsDiv.innerHTML=`
+    <h4>Integrations</h4>
+    ${integrationsElements?.map(item=>`
+    <li>${item}</li>
+    `).join("")}`
 
+    // card image added 
+    const cardImage=document.getElementById("card-image")
+    cardImage.innerText=""
+    const cardImageDiv=document.createElement("div")
+    
+    cardImageDiv.classList.add("mt-3")
+    cardImageDiv.innerHTML=`
+    
+    <div>
+        <div style="background-image: url('${tool.data.image_link[0]}');background-size:contain;background-repeat:no-repeat;height:50vh;">
+           
+            <div class="position-absolute top-0 end-0 me-5 mt-5 pe-4">
+            <button type="button" class="btn btn-danger me-5">${tool.data.accuracy.score*100}<span>% accuracy</span>
+            </button>
+            </div>
+
+        </div>
+        <div>
+            <div>
+                <h3>Hi, How are you doing today?</h3>
+                <p>I am doing well, Thank you for asking. How can I assist you today?</p>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    `
+    cardImage.appendChild(cardImageDiv)
 
 }
 
