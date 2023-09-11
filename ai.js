@@ -10,7 +10,7 @@ const laodTools = async () => {
 
 const displayTools = (technologies) => {
     const techContainer = document.getElementById('tech-container')
-    console.log(technologies)  
+    // console.log(technologies)  
     technologies.forEach(technology => {
         const techDiv = document.createElement('div')
         // console.log(technology.id)
@@ -118,4 +118,18 @@ const openModal=tool=>{
 
 }
 
+document.getElementById('sort-btn').addEventListener('click',function(){
+    fetch(`https://openapi.programming-hero.com/api/ai/tools`)
+    .then(res=>res.json())
+    .then(data=>sortTools(data.data.tools))
+})
+
+const sortTools=(aiTools)=>{
+    aiTools.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
+    // console.log(aiTools)
+    const techContainer = document.getElementById('tech-container')
+    techContainer.innerText=""
+    displayTools(aiTools)
+
+}
 laodTools()
