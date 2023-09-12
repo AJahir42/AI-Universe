@@ -1,15 +1,27 @@
-const laodTools = async () => {
+const laodTools = async (dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url)
     const data = await res.json();
-    displayTools(data.data.tools)
+    displayTools(data.data.tools,dataLimit)
 
 }
 
 // display Ai tools in cards
 
-const displayTools = (technologies) => {
+const displayTools = (technologies, dataLimit) => {
     const techContainer = document.getElementById('tech-container')
+    techContainer.innerText=""
+
+    const showAll=document.getElementById('show-all')
+    if(dataLimit && technologies.length>6){
+        technologies=technologies.slice(0,6);
+        
+        showAll.classList.remove('d-none')
+    }
+    else{
+        showAll.classList.add('d-none')
+    }
+
     // console.log(technologies)  
     technologies.forEach(technology => {
         const techDiv = document.createElement('div')
@@ -124,6 +136,7 @@ document.getElementById('sort-btn').addEventListener('click',function(){
     .then(data=>sortTools(data.data.tools))
 })
 
+// sort by date 
 const sortTools=(aiTools)=>{
     aiTools.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
     // console.log(aiTools)
@@ -132,4 +145,12 @@ const sortTools=(aiTools)=>{
     displayTools(aiTools)
 
 }
-laodTools()
+
+
+
+laodTools(6)
+
+// show all 
+document.getElementById('btn-show-all').addEventListener('click',function(){
+    laodTools()
+})
