@@ -1,4 +1,6 @@
 const laodTools = async (dataLimit) => {
+    // start loader 
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url)
     const data = await res.json();
@@ -62,7 +64,8 @@ const displayTools = (technologies, dataLimit) => {
 
     });
    
- 
+    // stop loader 
+    toggleSpinner(false);
 
 }
 
@@ -146,8 +149,20 @@ const sortTools=(aiTools)=>{
 
 }
 
+// add loader 
+const toggleSpinner=isLoading=>{
+    const loaderSection=document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none')
+    }
+    else{
+        loaderSection.classList.add('d-none') 
+    }
+
+}
 
 
+// display 6 tools only 
 laodTools(6)
 
 // show all 
