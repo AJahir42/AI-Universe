@@ -77,6 +77,7 @@ const loadToolDetails=async id=>{
    
 }
 
+// card modal
 const openModal=tool=>{
     console.log(tool.data)
     console.log(tool.data.pricing!==null?tool.data.pricing[0].price: 'no data found')
