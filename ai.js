@@ -131,7 +131,7 @@ const openModal=tool=>{
         <div>
             <div>
                 <h3>Hi, How are you doing today?</h3>
-                <p>I am doing well, Thank you for asking. How can I assist you today?</p>
+                <p>${tool.data.accuracy.description}</p>
             </div>
             
         </div>
