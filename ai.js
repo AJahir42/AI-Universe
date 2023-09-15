@@ -79,9 +79,19 @@ const loadToolDetails=async id=>{
 
 const openModal=tool=>{
     console.log(tool.data)
+    console.log(tool.data.pricing!==null?tool.data.pricing[0].price: 'no data found')
+    
     const toolDescription=document.getElementById("description")
     // object of objects of features
     toolDescription.innerText=tool.data.description
+
+    const price1=document.getElementById("price-1")
+    price1.innerText=tool.data.pricing!==null?tool.data.pricing[0].price: 'no data found'
+    const price2=document.getElementById("price-2")
+    price2.innerText=tool.data.pricing!==null?tool.data.pricing[1].price: 'no data found'
+    const price3=document.getElementById("price-3")
+    price3.innerText=tool.data.pricing!==null?tool.data.pricing[2].price: 'no data found'
+
     // array of object values
     const cardFeatures=Object.values(tool.data.features)
     // features added in card
